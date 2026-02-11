@@ -84,7 +84,7 @@ namespace MinimartMIS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             if (status == "insert")
             {
                 insertData();
@@ -98,7 +98,7 @@ namespace MinimartMIS
 
         private void updateData()
         {
-            
+
             if (!checkInputData())
             {
                 return; //หมายความว่า ถ้า checkInputData() มีค่าเป็น False จะจบโค้ดตรงนี้
@@ -112,7 +112,7 @@ namespace MinimartMIS
             comm.Parameters.AddWithValue("@unitPrice", txtUnitPrice.Text);
             comm.Parameters.AddWithValue("@UnitsInStock", txtUnitsInStock.Text);
 
-            comm.Parameters.AddWithValue("@CategoryID", cboCategory.SelectedValue); 
+            comm.Parameters.AddWithValue("@CategoryID", cboCategory.SelectedValue);
             if (radContinued.Checked)
             {
                 comm.Parameters.AddWithValue("@Discontinued", 0);
@@ -129,18 +129,18 @@ namespace MinimartMIS
 
             try
             {
-                comm.ExecuteNonQuery(); 
+                comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 string msg = ex.Message;
                 MessageBox.Show(msg, "เกิดข้อผิดพลาด");
             }
-            conn.Close(); 
+            conn.Close();
         }
         private void insertData()
         {
-        if (!checkInputData())
+            if (!checkInputData())
             {
                 return; //หมายความว่า ถ้า checkInputData() มีค่าเป็น False จะจบโค้ดตรงนี้
             }
@@ -151,7 +151,7 @@ namespace MinimartMIS
             comm.Parameters.AddWithValue("@productName", txtProductName.Text.Trim());
             comm.Parameters.AddWithValue("@unitPrice", txtUnitPrice.Text);
             comm.Parameters.AddWithValue("@UnitsInStock", txtUnitsInStock.Text);
-            comm.Parameters.AddWithValue("@CategoryID", cboCategory.SelectedValue); 
+            comm.Parameters.AddWithValue("@CategoryID", cboCategory.SelectedValue);
             if (radContinued.Checked)
             {
                 comm.Parameters.AddWithValue("@Discontinued", 0);
@@ -166,37 +166,37 @@ namespace MinimartMIS
             }
             try
             {
-                comm.ExecuteNonQuery(); 
+                comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 string msg = ex.Message;
                 MessageBox.Show(msg, "เกิดข้อผิดพลาด");
             }
-            conn.Close(); 
+            conn.Close();
         }
 
-        private bool checkInputData() 
+        private bool checkInputData()
         {
             if (txtProductID.Text.Trim() == "")
             {
                 MessageBox.Show("รหัสสินค้าต้องไม่เป็นที่ว่าง", "เกิดข้อผิดพลาด");
                 return false;
             }
-            
+
             if (txtProductName.Text.Trim() == "")
             {
                 MessageBox.Show("ชื่อสินค้าต้องไม่เป็นที่ว่าง", "เกิดข้อผิดพลาด");
                 return false;
             }
-            
+
             double x = 0.00;
             if (!double.TryParse(txtUnitPrice.Text, out x))
             {
                 MessageBox.Show("ราคาสินค้าต้องไม่เป็นที่ว่าง", "เกิดข้อผิดพลาด");
                 return false;
             }
-            
+
             int y = 0;
             if (!int.TryParse(txtUnitsInStock.Text, out y))
             {
@@ -204,6 +204,11 @@ namespace MinimartMIS
                 return false;
             }
             return true;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

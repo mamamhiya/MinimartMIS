@@ -34,7 +34,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
+            btnSave = new Button();
             btnClear = new Button();
             SuspendLayout();
             // 
@@ -87,15 +87,15 @@
             label1.TabIndex = 4;
             label1.Text = "รหัสหม่วดหมู่สินค้า";
             // 
-            // button1
+            // btnSave
             // 
-            button1.Location = new Point(148, 374);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 8;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnSave.Location = new Point(148, 374);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(94, 29);
+            btnSave.TabIndex = 8;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClear
             // 
@@ -113,7 +113,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 192);
             ClientSize = new Size(572, 497);
-            Controls.Add(button1);
+            Controls.Add(btnSave);
             Controls.Add(btnClear);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
@@ -123,6 +123,7 @@
             Controls.Add(label1);
             Name = "frmEditCategory";
             Text = "frmEditCategory";
+            Load += frmEditCategory_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,7 +136,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Button button1;
+        private Button btnSave;
         private Button btnClear;
     }
 }

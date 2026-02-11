@@ -46,7 +46,7 @@ namespace MinimartMIS
             {
                 try
                 {
-                    string sql = "DELETE FROM Category WHERE CategoryID = @CategoryID";
+                    string sql = "DELETE FROM Categories WHERE CategoryID = @CategoryID";
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@CategoryID", categoryID);
                     int row = cmd.ExecuteNonQuery();
@@ -68,7 +68,6 @@ namespace MinimartMIS
                 }
             }
         }
-
 
 
         private void frmCategory_Load(object sender, EventArgs e)
